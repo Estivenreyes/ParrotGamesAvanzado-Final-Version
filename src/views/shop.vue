@@ -98,10 +98,18 @@
             <RouterLink v-for="product in items" :key="product.name" :to="`/productView/${product.name}`" class="yes">
                     <div class="Card__content">
                         <img :src='product.image' alt="preview" class="Card__img">
-                        <h2 class="Card--h2">{{ product.name }}</h2>
-                        <p class="Card--text">{{ product.price}}</p>
-                        <p class="Card--text">{{ product.type}}</p>
-                        <button class="Card--button">Buy</button>
+                        
+                        <div class="Card__text">
+                            <h2 class="Card--h2">{{ product.title }}</h2> 
+                            <div class="Card--box">
+                                <p class="Card--text">{{ product.price}}$</p>
+                                <button class="Card--button">Buy</button> 
+                            </div>
+                             
+                        </div>
+                        <!-- <p class="Card--text">{{ product.type}}</p> -->
+                        
+                        
                     </div>
 
                 </RouterLink>
@@ -167,6 +175,7 @@
         width: 100%;
         padding: 20px 30px;
         border-radius: 10px;
+        margin-block-end: 20px;
         justify-content: center;
         align-items: center;
     }
@@ -177,17 +186,31 @@
         flex-wrap: wrap;
         font-size: 1.5em;
         width: 15%;
-        padding: 25px 10px;
+        padding: 0px 10px;
+    }
+
+    .Card__img{
+        width: 100%;
     }
 
     .product__button{
         padding: 10px 45px;
         border-radius: 5px;
+        margin-left: 50px;
         color: white;
         background-color: $blue;
         cursor: pointer;
         border: none;
         outline: none;
+    }
+
+    .products__cards{
+        align-items: center;
+        background-color: #363636;
+        width: 80%;
+        padding: 100px 0px;
+        margin-left: 180px;
+        border-radius: 40px;
     }
 
     .Card{
@@ -200,7 +223,11 @@
     .Card__content{
         display: flex;
         flex-direction: column;
-        padding: 20px;
+        font-family: satoshi;
+        padding: 0px;
+        background-color: #1b1b1b;
+        border-radius: 25px;
+        margin: 20px;
     }
     .Card--button{
         color: white;
@@ -210,11 +237,35 @@
         outline: none;
         border: none;
     }
+
+    .Card--box{
+        display: flex;
+        flex-wrap: wrap;
+        padding: 30px 0px;
+    }
+
+    .Card__text{
+        display: flex;
+        flex-wrap: wrap;
+        flex-direction: row;
+        justify-content: space-between;
+
+    }
     .Card--text{
         display: flex;
         width: 20%;
+        margin-left: 20px;
         font-size: 1.5em;
         color: white;
+        padding: 0px 60px;
+    }
+
+    .Card--h2{
+        color: white;
+        font-size: 2em;
+        padding: 0px 60px;
+        margin-top: 20px;
+        font-weight: bold;
     }
     
 </style>
