@@ -144,6 +144,15 @@ export const shopItem = defineStore("products", {
             this.products = this.products.concat([...this.localStorageProducts]);
         },
 
+        productG(id) {
+            const filteredProducts = this.products.filter((product) => id.toLowerCase() === product.name.toLowerCase());
+            return filteredProducts
+                ? {
+                      ...filteredProducts[0],
+                  }
+                : null;
+        },
+
         filterlower() {
             this.product.sort((a, b) => {
                 return a - b;
