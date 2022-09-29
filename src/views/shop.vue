@@ -82,21 +82,22 @@
                         <option value="Open world">Open world</option>
                         <option value="platform">platform</option>
                     </select>
-                </div>
-
-                <div class="products__select">
+                    <div class="products__select">
                     <button class="product__button" v-on:click="discount = !discount">Discount</button>
                 </div>
+                </div>
+
+               
             </div>
         </div>
         
     </section>
 
-    <section class="products" id="products">
+    <section class="products__cards" id="products">
         <div class="Card">
             <RouterLink v-for="product in items" :key="product.name" :to="`/productView/${product.name}`" class="yes">
                     <div class="Card__content">
-                        <img :src='product.image' alt="preview" class="img">
+                        <img :src='product.image' alt="preview" class="Card__img">
                         <h2 class="Card--h2">{{ product.name }}</h2>
                         <p class="Card--text">{{ product.price}}</p>
                         <p class="Card--text">{{ product.type}}</p>
@@ -189,4 +190,31 @@
         outline: none;
     }
 
+    .Card{
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        width: 100%;
+    }
+    .Card__content{
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+    }
+    .Card--button{
+        color: white;
+        background-color: $blue;
+        padding: 10px 45px;
+        border-radius: 5px;
+        outline: none;
+        border: none;
+    }
+    .Card--text{
+        display: flex;
+        width: 20%;
+        font-size: 1.5em;
+        color: white;
+    }
+    
 </style>
