@@ -79,7 +79,7 @@
                         <option value="JRPG">JRPG</option>
                         <option value="Rhythm">Rhythm</option>
                         <option value="Adventure">Adventure</option>
-                        <option value="Open world">Open world</option>
+                        <option value="OpenWorld">Open world</option>
                         <option value="platform">platform</option>
                     </select>
                     <div class="products__select">
