@@ -40,7 +40,7 @@ export const shopItem = defineStore("products", {
                 title: "Persona",
                 price: 27.0,
                 Units: false,
-                type: "JRPG",
+                type: "Platform",
                 isRecomended: true,
                 isBestSeller: false,
                 isDiscounted: false,
