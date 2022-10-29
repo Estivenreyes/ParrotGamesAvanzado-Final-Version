@@ -7,9 +7,23 @@ import { RouterLink, RouterView } from 'vue-router'
    <div class="page">
     <header>
         <div class="nav">
-          <router-link to="/">
+          <div class="textItems">
+            <router-link to="/">
             <img alt="Parrot logo" class="logo" src="../src/assets/img/logo.svg" />
           </router-link>
+          </div>
+          <div class="textItems">
+            <div class="sign">
+              <router-link to="/login">
+              <h2 class="h2Bar bar">Sign in</h2>
+            </router-link>
+            </div>
+            <div class="sign">
+            <router-link to="/Register">
+              <button class="btnBar btn1">Sign on</button>
+            </router-link>
+            </div>
+          </div>
           <nav class="navbar" id="navegation menu">
           </nav>
         </div>
@@ -48,7 +62,6 @@ import { RouterLink, RouterView } from 'vue-router'
     width: 100%;
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-between;
     position: fixed;
     background: rgba(35, 35, 35, 0.8);
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
@@ -89,5 +102,59 @@ import { RouterLink, RouterView } from 'vue-router'
         display: flex;
         justify-content: flex-end;
       }
+    }
+
+    .h2Bar{
+      color: white;
+      font-family: 'Satoshi';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 27px;
+    }
+
+    .bar{
+      color: white;
+    }
+
+    .bar:hover{
+      color: #1569DB;
+    }
+
+    .btnBar{
+      color: white;
+      display: flex;
+      font-family: 'Satoshi';
+      font-style: normal;
+      font-weight: 400;
+      font-size: 20px;
+      line-height: 27px;
+      padding: 5px 10px;
+      border-radius: 6px;
+
+      outline: none;
+      border:  solid;
+      background: none;
+      cursor: pointer;
+    }
+
+    .btn1{
+      color: white;
+    }
+
+    .btn1:hover{
+      color: $blue;
+    }
+
+    .sign{
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .textItems{
+      width: 50%;
+      display: flex;
+      align-items: center
     }
 </style>

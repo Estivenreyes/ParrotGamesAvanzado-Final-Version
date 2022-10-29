@@ -11,9 +11,9 @@
                 out:[],
                 sortby: 'default',
                 gender: '',
-                discount: null 
+                discount: null, 
             };
-        },
+        },      
         name: 'App',
 
         computed: {
@@ -56,12 +56,13 @@
         </figure>
     </section>
 
+<!-- Filters -->
     <section class="products">
         <div class="products__content">
             <h1 class="products__title">Participate in thematic forums of your favorite games.</h1>
             <div class="products__filter">
                 <h2 class="products__subtitle">Find your product</h2>
-                <input type="text" class="products__search" placeholder="Search">
+                <input type="text" class="products__search" placeholder="Search" id="keyboard">
                 
                 <div class="products__select">
                     <p class="products__text">Price</p>
