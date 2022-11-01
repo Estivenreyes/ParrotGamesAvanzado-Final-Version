@@ -12,7 +12,14 @@ import { RouterLink, RouterView } from 'vue-router'
             <img alt="Parrot logo" class="logo" src="../src/assets/img/logo.svg" />
           </router-link>
           </div>
+
+          <!-- here are some items for navagating between the pages -->
           <div class="textItems">
+            <div class="shoppingCar">
+              <router-link to="/Car">
+              <img src="./assets/img/shoppingCar.svg" alt="ShoppingCar">
+            </router-link>
+            </div>
             <div class="sign">
               <router-link to="/login">
               <h2 class="h2Bar bar">Sign in</h2>
@@ -156,5 +163,10 @@ import { RouterLink, RouterView } from 'vue-router'
       width: 50%;
       display: flex;
       align-items: center
+    }
+
+    .shoppingCar{
+      display: flex;
+      padding-right: 30px;
     }
 </style>
