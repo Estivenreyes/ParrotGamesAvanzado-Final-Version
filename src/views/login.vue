@@ -1,5 +1,5 @@
 <script>
-import {useAuthentication} from "../stores/authentication.js"
+import {useAuthenticationStore} from "../stores/authentication.js"
 import { mapStores } from "pinia";
 
  export default {
@@ -20,7 +20,7 @@ import { mapStores } from "pinia";
             }
     },
     computed: {
-        ...mapStores(useAuthentication)
+        ...mapStores(useAuthenticationStore)
     }
  }
 </script>
@@ -30,8 +30,8 @@ import { mapStores } from "pinia";
         <div class="Login">
             <h1 class="h1">Login</h1>
             <div class="input">
-                <label class="label">User name</label>
-                <input class="input-style" placeholder="Type your username" name="email" type="email" id="email" v-model = "email">
+                <label class="label">Email</label>
+                <input class="input-style" placeholder="Type your email" name="email" type="email" id="email" v-model = "email">
             </div>
 
             <div class="input">
@@ -45,6 +45,10 @@ import { mapStores } from "pinia";
             <div class="button">
                 <button class="button-style btn"  @click="signIn">Login</button>
             </div>
+            <div class="log out">
+            <h1 class="text" @click="logOut">Closed session</h1>
+                <button class="button-style1 btn2">log out</button>
+            </div>
             <div class="icon">
                 <p class="text">Or sign up using</p>
                 <figure class="svg">
@@ -56,13 +60,17 @@ import { mapStores } from "pinia";
                 <p class="text">If you haven't register press <router-link to="/Register"><u><b>here</b></u></router-link></p>
             </div>
         </div>
-    </section>    
+        
+    </section>
+
+    
 </template>
 
 <style lang="scss">
  
     $parrot-gray: #434343;
     $bg: #2E2E2E;
+    $red: #EB5757;
 
     .h1{
         display: flex;
@@ -190,12 +198,47 @@ import { mapStores } from "pinia";
         cursor: pointer;
     }
 
+    .button-style1{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        gap: 10px;
+        color: white;
+        font-family: 'Poppins';
+        font-style: normal;
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 24px;
+
+        width: 371px;
+        height: 44px;
+
+        /* Blue 2 P */
+
+        background: $red;
+        border-radius: 55px;
+
+        outline: none;
+        border: none;
+        cursor: pointer;
+    }
+
     .btn{
         background: #1569DB;
     }
 
     .btn:hover{
         background: #0045A4;
+    }
+
+    .btn2{
+        background: $red;
+    }
+
+    .btn2:hover{
+        background: #B02727;
     }
 
     .svg{

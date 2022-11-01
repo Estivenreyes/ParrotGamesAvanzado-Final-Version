@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
 
-export const useAuthentication = defineStore("authentication", {
+export const useAuthenticationStore = defineStore("authentication", {
     state: () => ({
         user: null,
     }),
@@ -49,7 +49,7 @@ export const useAuthentication = defineStore("authentication", {
         logOut() {
             signOut(auth)
                 .then(() => {
-                    console.log("usuario fuera");
+                    console.log("User out");
                 })
                 .catch((error) => {
                     alert(error);
