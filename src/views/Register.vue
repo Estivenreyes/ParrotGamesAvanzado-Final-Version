@@ -1,11 +1,12 @@
 <script>
-import {useAuthentication} from "../stores/authentication.js"
+import {useAuthenticationStore} from "../stores/authentication.js"
 import { mapStores } from "pinia";
 import {auth} from "../firebase/config"
 
  export default {
     data(){
         return{
+            username: '',
             email: '',
             password:'',
             confirmPassword:'',
@@ -15,14 +16,14 @@ import {auth} from "../firebase/config"
         newUser(e) {
             e.preventDefault()
             if (this.password === this.confirmPassword) {
-                this.authentication.newUserAwait(this.email, this.password)
-                console.log('I dont gonna wait for you')
+                this.authenticationStore.newUserAwait(this.email, this.password)
+                console.log('Im not going to wait for you')
             }
             else alert('Passwords are diferent')
         }
     },
     computed: {
-        ...mapStores(useAuthentication)
+        ...mapStores(useAuthenticationStore),
     },
 
     mouted(){
@@ -37,7 +38,7 @@ import {auth} from "../firebase/config"
             <h1 class="h1">Register</h1>
             <div class="input">
                 <h2 class="label">User name</h2>
-                <input class="input-style" placeholder="Type your username" type="username" id="username" >
+                <input class="input-style" placeholder="Type your username" type="username" id="username" v-model = "username">
             </div>
 
             <div class="input">
@@ -47,12 +48,12 @@ import {auth} from "../firebase/config"
 
             <div class="input">
                 <h2 class="label">Password</h2>
-                <input class="input-style" placeholder="Type your password" type="password" id="password">
+                <input class="input-style" placeholder="Type your password" type="password" id="password" v-model = "password">
             </div>
 
             <div class="input">
                 <h2 class="label">Confirm Password</h2>
-                <input class="input-style" placeholder="Confirm password" type="password" id="confirmPassword">
+                <input class="input-style" placeholder="Confirm password" type="password" id="confirmPassword" v-model="confirmPassword">
                 <div class="input-forgot">
                 </div>
             </div>

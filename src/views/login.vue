@@ -47,7 +47,7 @@ import { mapStores } from "pinia";
             </div>
             <div class="log out">
             <h1 class="text">Closed session</h1>
-                <button class="button-style1 btn2">log out</button>
+                <button class="button-style btn2">log out</button>
             </div>
             <div class="icon">
                 <p class="text">Or sign up using</p>
@@ -198,47 +198,12 @@ import { mapStores } from "pinia";
         cursor: pointer;
     }
 
-    .button-style1{
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
-        padding: 10px;
-        gap: 10px;
-        color: white;
-        font-family: 'Poppins';
-        font-style: normal;
-        font-weight: 700;
-        font-size: 16px;
-        line-height: 24px;
-
-        width: 371px;
-        height: 44px;
-
-        /* Blue 2 P */
-
-        background: $red;
-        border-radius: 55px;
-
-        outline: none;
-        border: none;
-        cursor: pointer;
-    }
-
     .btn{
         background: #1569DB;
     }
 
     .btn:hover{
         background: #0045A4;
-    }
-
-    .btn2{
-        background: $red;
-    }
-
-    .btn2:hover{
-        background: #B02727;
     }
 
     .svg{
