@@ -1,5 +1,5 @@
 import { defineStore } from "pinia";
-import { signInWithEmailAndPassword, createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
 
 export const useAuthentication = defineStore("authentication", {
@@ -22,7 +22,7 @@ export const useAuthentication = defineStore("authentication", {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    console.log(error);
+                    alert(errorMessage);
                 });
         },
         newUser(email, password) {
@@ -34,16 +34,15 @@ export const useAuthentication = defineStore("authentication", {
                 .catch((error) => {
                     const errorCode = error.code;
                     const errorMessage = error.message;
-                    alert(error);
+                    alert(errorMessage);
                 });
         },
-
         async newUserAwait(email, password) {
             try {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-                console.log("usuario creado", userCredential.user);
+                console.log("User create", userCredential.user);
             } catch (error) {
-                alert(errorMessage);
+                alert(error);
             }
         },
 
