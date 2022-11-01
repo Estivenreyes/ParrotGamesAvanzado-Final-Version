@@ -1,5 +1,5 @@
 <script>
-import {useAuthenticationStore} from "../stores/authentication.js"
+import {useAuthentication} from "../stores/authentication.js"
 import { mapStores } from "pinia";
 
  export default {
@@ -20,7 +20,7 @@ import { mapStores } from "pinia";
             }
     },
     computed: {
-        ...mapStores(useAuthenticationStore)
+        ...mapStores(useAuthentication)
     }
  }
 </script>
@@ -30,8 +30,8 @@ import { mapStores } from "pinia";
         <div class="Login">
             <h1 class="h1">Login</h1>
             <div class="input">
-                <label class="label">Email</label>
-                <input class="input-style" placeholder="Type your email" name="email" type="email" id="email" v-model = "email">
+                <label class="label">User name</label>
+                <input class="input-style" placeholder="Type your username" name="email" type="email" id="email" v-model = "email">
             </div>
 
             <div class="input">
@@ -45,10 +45,6 @@ import { mapStores } from "pinia";
             <div class="button">
                 <button class="button-style btn"  @click="signIn">Login</button>
             </div>
-            <div class="log out">
-            <h1 class="text">Closed session</h1>
-                <button class="button-style btn2">log out</button>
-            </div>
             <div class="icon">
                 <p class="text">Or sign up using</p>
                 <figure class="svg">
@@ -60,17 +56,13 @@ import { mapStores } from "pinia";
                 <p class="text">If you haven't register press <router-link to="/Register"><u><b>here</b></u></router-link></p>
             </div>
         </div>
-        
-    </section>
-
-    
+    </section>    
 </template>
 
 <style lang="scss">
  
     $parrot-gray: #434343;
     $bg: #2E2E2E;
-    $red: #EB5757;
 
     .h1{
         display: flex;

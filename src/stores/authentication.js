@@ -2,13 +2,17 @@ import { defineStore } from "pinia";
 import { signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut } from "firebase/auth";
 import { auth } from "../firebase/config";
 
-export const useAuthenticationStore = defineStore("authentication", {
+export const useAuthentication = defineStore("authentication", {
     state: () => ({
         user: null,
     }),
+
+    getters: {
+        getProducts: (state) => [...state.products],
+    },
+
     actions: {
         signIn(email, password) {
-            console.log("Calling sing In");
             signInWithEmailAndPassword(auth, email, password)
                 .then((userCredential) => {
                     // Signed in
@@ -38,13 +42,14 @@ export const useAuthenticationStore = defineStore("authentication", {
                 const userCredential = await createUserWithEmailAndPassword(auth, email, password);
                 console.log("User create", userCredential.user);
             } catch (error) {
-                alert(errorMessage);
+                alert(error);
             }
         },
+
         logOut() {
             signOut(auth)
                 .then(() => {
-                    console.log("User out");
+                    console.log("usuario fuera");
                 })
                 .catch((error) => {
                     alert(error);
