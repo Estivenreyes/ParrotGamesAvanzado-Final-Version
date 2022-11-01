@@ -1,7 +1,6 @@
 <script>
 import {useAuthentication} from "../stores/authentication.js"
 import { mapStores } from "pinia";
-import {auth} from "../firebase/config"
 
  export default {
     data(){
@@ -15,7 +14,7 @@ import {auth} from "../firebase/config"
         newUser(e) {
             e.preventDefault()
             if (this.password === this.confirmPassword) {
-                this.authentication.newUserAwait(this.email, this.password)
+                this.authenticationStore.newUserAwait(this.email, this.password)
                 console.log('I dont gonna wait for you')
             }
             else alert('Passwords are diferent')
@@ -37,12 +36,12 @@ import {auth} from "../firebase/config"
             <h1 class="h1">Register</h1>
             <div class="input">
                 <h2 class="label">User name</h2>
-                <input class="input-style" placeholder="Type your username" type="username" id="username" >
+                <input class="input-style" placeholder="Type your username" type="username" id="username" v-model = "username">
             </div>
 
             <div class="input">
                 <h2 class="label">Email</h2>
-                <input class="input-style" placeholder="Type your email" type="email" id="email" v-model = "email">
+                <input class="input-style" placeholder="Type your email" type="email" id="email">
             </div>
 
             <div class="input">
@@ -52,13 +51,13 @@ import {auth} from "../firebase/config"
 
             <div class="input">
                 <h2 class="label">Confirm Password</h2>
-                <input class="input-style" placeholder="Confirm password" type="password" id="confirmPassword">
+                <input class="input-style" placeholder="Confirm password" type="password" id="confpasswordt">
                 <div class="input-forgot">
                 </div>
             </div>
 
             <div class="button">
-                <button class="button-style btn" @click="newUser">Register</button>
+                <button class="button-style btn" @click="SignUp">Register</button>
             </div>
             <div class="icon">
                 <p class="text">Or sign up using</p>
