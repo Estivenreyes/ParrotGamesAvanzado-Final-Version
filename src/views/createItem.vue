@@ -1,12 +1,16 @@
 <script>
     import{ mapStores} from "pinia";
     import { shopItem } from "../stores/products";
+    // import { storage } from "../firebaseconf"
+
+    // const ref = storage.ref();
 
     export default{
         components: {
         },
         information(){
             return{
+                // image: [],
                 title: "",
                 price: "",
                 units: "",
@@ -46,14 +50,26 @@
 
                 reader.addEventListener("load",()=>{this.imgUrl = reader.result});
             },
+
+            // clickImage(e){
+            //     this.imgUrl = e.target.files[0];
+            //     console.log(this.imgUrl)
+            // },
+
+            // uploadImage(){
+            //     const refImg = ref.child("products/"+this.imgUrl.name)
+            //     const metadata = {contetType: 'img/jpeg'};
+            //     refImg.put(this.imgUrl, metadata)
+            //     .then(e => console.log(e))
+            // }
         }
     }
 </script>
 <template>
-    <div></div>
-    <section class="create">
+    <div class="container">
+        <section class="create">
         <div class="create__item">
-            <form id="form" class="create__content">
+            <form @submit.prevent="uploadImage" id="form" class="create__content">
                 <label for="title" class="item__title">Title</label>
                 <input type="text" id="title" class="create__input" v-model="title">
 
@@ -84,11 +100,13 @@
                     <label for="img" class="create__img">Select your image</label>
                     <input type="file" id="img" class="create__images" multiple="multiple" @change="readImage">
                 </div>
-
-                <button type="submit" class="create__upload" @click="(e)=> createNewProduct()">Public</button>
+                <div class="create__btn">
+                    <button type="submit" class="create__upload" @click="(e)=> createNewProduct()">Public</button>
+                </div>
             </form>
         </div>
     </section>
+    </div>
 </template>
 
 <style lang="scss">
@@ -99,18 +117,26 @@
     body {
         background-color: $nav;
     }
+
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 150px;
+    }
+
     .create{
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
         font-family: satoshi;
-        margin-left: 200px;
+        border-radius: 25px;
         font-size: 1.2em;
-        width: 80%;
-        height: 100%;
-        padding: 160px;
+        width: 50%;
+        padding: 50px;
         color: white;
         background-color: #434343;
+        justify-content: center;
         box-shadow: 0px 9px 20px 1px rgba(0, 0, 0, 0.25);
     }
     .create__item{
@@ -146,11 +172,30 @@
         background-color:$blue;
         width: 50%;
         color: white;
-        padding: 10px 0px;
+        padding: 15px 0px;
         outline: none;
         border: none;
         border-radius: 5px;
+        font-size: 1em;
+        font-weight: bold;
+        font-family: Poppins;
         cursor: pointer;
+    }
+
+    .create__photos{
+        display: flex;
+        padding-top: 50px;
+        padding-block-end: 20px;
+    }
+
+    .create__photo{
+        display: flex;
+        justify-content: center;
+    }
+    .create__btn{
+        display: flex;
+        justify-content: center;
+        padding: 10px;
     }
 
 </style>

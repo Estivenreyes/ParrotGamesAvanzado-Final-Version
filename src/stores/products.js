@@ -113,6 +113,8 @@ export const shopItem = defineStore("products", {
                 image: "/src/assets/img/carGris.png",
             },
         ],
+        id: null,
+        localStorageProducts: [],
 
         localStorageProduct: [],
     }),
